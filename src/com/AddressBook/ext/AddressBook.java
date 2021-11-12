@@ -1,8 +1,10 @@
 package com.AddressBook.ext;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+
 
 public class AddressBook {
 	public String fname;
@@ -14,8 +16,9 @@ public class AddressBook {
 	public String zip;
 	public String emailId;
 
-	public AddressBook(String fname, String lname, String address, String phonenumber, String city, String state,
-			String zip, String emailId) {
+  public AddressBook(String fname, String lname, String address, String phonenumber, String city, String state, String zip,
+			String emailId) {
+
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -28,7 +31,7 @@ public class AddressBook {
 	}
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the first Name :");
 		String fname =sc.nextLine();
 		System.out.println("Enter the last Name :");
@@ -60,7 +63,8 @@ public class AddressBook {
 			System.out.println(bk.fname+"\n"+bk.lname+"\n"+bk.address+"\n"+bk.phonenumber+"\n"
 					+bk.city+"\n"+bk.state+"\n"+bk.zip+"\n"+bk.emailId);
 		
-	}
-	}
+	  }
+  
+  }
 
 }
