@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import com.Trail.Person;
-
 public class AddressBook {
 	List<Contacts> addressBook = new ArrayList<Contacts>();
 	Scanner sc = new Scanner(System.in);
@@ -104,4 +102,5 @@ public class AddressBook {
 		id = sc.nextInt();
 		addressBook.remove(id);
 	}
-}
+
+
