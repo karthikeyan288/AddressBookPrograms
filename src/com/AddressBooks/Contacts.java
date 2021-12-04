@@ -92,6 +92,5 @@ public class Contacts {
 		return "Person{" + "fname='" + firstName + '\'' + ", lname='" + lastName + '\'' + ", address='" + address + '\''
 				+ ", city='" + cityName + '\'' + ", state='" + stateName + '\'' + ", phone='" + phoneNumber + '\''
 				+ ", zip='" + zipCode + '\'' + '}';
-
-	}
+  }
 }
