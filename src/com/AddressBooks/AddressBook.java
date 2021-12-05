@@ -5,9 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import com.Trail.Person;
-
-public class AddressBook {
+public class AddressBook  implements IAddressBook {
 	List<Contacts> addressBook = new ArrayList<Contacts>();
 	Scanner sc = new Scanner(System.in);
 
@@ -168,3 +166,4 @@ public class AddressBook {
 		return false;
 	}
 }
+
