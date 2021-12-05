@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressBook {
+public class AddressBook  implements IAddressBook {
 	List<Contacts> addressBook = new ArrayList<Contacts>();
 	Scanner sc = new Scanner(System.in);
 
@@ -102,6 +102,43 @@ public class AddressBook {
 				System.out.println("Please Enter Valid Option");
 			}
 			System.out.println(addressBook.get(id));
+		}
+	}
+
+	public static void searchByCity(List<Contacts> contacts) {
+		String search;
+		List<Contacts> equal = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First Name to search : ");
+		search = sc.nextLine();
+		int flag = 0;
+		for (Contacts con : contacts) {
+			if (con.getCity().equalsIgnoreCase(search)) {
+				flag = 1;
+				equal.add(con);
+			}
+		}
+		if (flag == 1) {
+			System.out.println("...Match Found...");
+			for (Contacts co : equal) {
+				System.out.println(co);
+			}
+		} else {
+			System.out.println("Match Not Found!!!");
+		}
+	}
+
+	public void Search() {
+		int search;
+		System.out.println("Enter to search 1-> search by city ");
+		search = sc.nextInt();
+		switch (search) {
+		case 1:
+			searchByCity(addressBook);
+			break;
+		default:
+			System.out.println("Enter proper value");
+			break;
 		}
 	}
 
