@@ -12,7 +12,18 @@ public class AddressBook {
 	Scanner sc = new Scanner(System.in);
 
 	public void addContact() {
-		final String firstName, lastName, address, cityName, stateName, zipCode, phoneNumber, emailId;
+		int i = 0;
+		String firstName = null;
+		final String lastName, address, cityName, stateName, zipCode, phoneNumber, emailId;
+		while (i == 0) {
+			System.out.println("Enter the first Name :");
+			firstName = sc.nextLine();
+			if (checkExists(firstName)) {
+				System.out.println("The name is already present in the addressBook");
+			} else {
+				i = 1;
+			}
+		}
 		System.out.print("Enter First Name : ");
 		firstName = sc.nextLine();
 		System.out.print("Enter Last Name : ");
@@ -30,6 +41,7 @@ public class AddressBook {
 		System.out.println("Enter the Emailid :");
 		emailId = sc.nextLine();
 		addressBook.add(new Contacts(firstName, lastName, address, cityName, stateName, zipCode, phoneNumber, emailId));
+
 	}
 
 	public void ShowDetail() {
@@ -41,13 +53,13 @@ public class AddressBook {
 	}
 
 	public void editContact() {
-		int id, edit, i = 0;
+		int edit, i = 0;
 		String firstName, lastName, address, cityName, stateName, zipCode, phoneNumber, emailId;
 		for (Contacts contacts : addressBook) {
 			System.out.println("Id :" + addressBook.indexOf(contacts));
 		}
 		System.out.println("Enter the Id to edit");
-		id = sc.nextInt();
+		int id = sc.nextInt();
 		System.out.println(addressBook.get(id));
 		while (i == 0) {
 			System.out.println(
@@ -103,5 +115,19 @@ public class AddressBook {
 		System.out.print("\nEnter #ID to delete Contact : ");
 		id = sc.nextInt();
 		addressBook.remove(id);
+	}
+
+	public boolean checkExists(String firstName) {
+		int flag = 0;
+		for (Contacts contacts : addressBook) {
+			if (contacts.getFirstName().equals(firstName)) {
+				flag = 1;
+				break;
+			}
+		}
+		if (flag == 1) {
+			return true;
+		}
+		return false;
 	}
 }
