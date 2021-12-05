@@ -8,8 +8,9 @@ public class UserMain {
 		int i = 0;
 		while (i == 0) {
 			Scanner sc = new Scanner(System.in);
-			System.err.println(
-					"Enter the choice 1-> add contact  2-> show Contact  3->edit Contact 4-> delete contact 5->exit");
+			System.out.println("********WELCOME TO ADDRESS BOOK********");
+			System.out.print(
+					"Enter the choice 1-> add contact  2-> show Contact 3->edit Contact 4-> delete contact 5->Search 6->exit");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -25,6 +26,8 @@ public class UserMain {
 				ad.deleteRecord();
 				break;
 			case 5:
+				ad.Search();
+			case 6:
 				System.out.println("*****THANKYOU*****");
 				i = 1;
 				break;
