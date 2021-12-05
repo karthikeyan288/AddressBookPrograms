@@ -10,7 +10,18 @@ public class AddressBook {
 	Scanner sc = new Scanner(System.in);
 
 	public void addContact() {
-		final String firstName, lastName, address, cityName, stateName, zipCode, phoneNumber, emailId;
+		int i = 0;
+		String firstName = null;
+		final String lastName, address, cityName, stateName, zipCode, phoneNumber, emailId;
+		while (i == 0) {
+			System.out.println("Enter the first Name :");
+			firstName = sc.nextLine();
+			if (checkExists(firstName)) {
+				System.out.println("The name is already present in the addressBook");
+			} else {
+				i = 1;
+			}
+		}
 		System.out.print("Enter First Name : ");
 		firstName = sc.nextLine();
 		System.out.print("Enter Last Name : ");
@@ -28,6 +39,7 @@ public class AddressBook {
 		System.out.println("Enter the Emailid :");
 		emailId = sc.nextLine();
 		addressBook.add(new Contacts(firstName, lastName, address, cityName, stateName, zipCode, phoneNumber, emailId));
+
 	}
 
 	public void ShowDetail() {
