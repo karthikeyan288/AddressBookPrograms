@@ -147,6 +147,7 @@ public class AddressBook implements IAddressBook {
 		int flag = 0;
 		for (Contacts con : contacts) {
 			if (con.getCity().equalsIgnoreCase(search)) {
+        System.out.println(con.getPhoneNumber());
 				flag = 1;
 				addressBook.add(con);
 			}
@@ -154,29 +155,6 @@ public class AddressBook implements IAddressBook {
 		if (flag == 1) {
 			System.out.println("...Match Found...");
 			for (Contacts co : addressBook) {
-				System.out.println(co);
-			}
-		} else {
-			System.out.println("Match Not Found!!!");
-		}
-	}
-	
-	public static void searchByState(List<Contacts> contacts) {
-		String search;
-		List<Contacts> equal = new ArrayList<>();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter First Name to search : ");
-		search = sc.nextLine();
-		int flag = 0;
-		for (Contacts con : contacts) {
-			if (con.getCity().equalsIgnoreCase(search)) {
-				flag = 1;
-				equal.add(con);
-			}
-		}
-		if (flag == 1) {
-			System.out.println("...Match Found...");
-			for (Contacts co : equal) {
 				System.out.println(co);
 			}
 		} else {
@@ -222,6 +200,28 @@ public class AddressBook implements IAddressBook {
 			return true;
 		}
 		return false;
+	}
+
+	public void Sorting() {
+		int value;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the choice for sorting : 1.name ");
+		value = sc.nextInt();
+		switch (value) {
+		case 1:
+			sortByFirstNmae();
+			break;
+
+		default:
+			System.out.println("Back to Menu");
+			break;
+		}
+	}
+
+	private void sortByFirstNmae() {
+		List<Contacts> contacts = addressBook.stream().sorted(Comparator.comparing(Contacts::getFirstName))
+				.collect(Collectors.toList());
+		System.out.println(contacts);
 	}
 }
 
