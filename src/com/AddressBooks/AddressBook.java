@@ -1,12 +1,21 @@
 package com.AddressBooks;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class AddressBook  implements IAddressBook {
-	List<Contacts> addressBook = new ArrayList<Contacts>();
+public class AddressBook implements IAddressBook {
+	static List<Contacts> addressBook = new ArrayList<Contacts>();
 	Scanner sc = new Scanner(System.in);
 
 	public void addContact() {
@@ -107,7 +116,31 @@ public class AddressBook  implements IAddressBook {
 
 	public static void searchByCity(List<Contacts> contacts) {
 		String search;
-		List<Contacts> equal = new ArrayList<>();
+		List<Contacts> addressBook = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First Name to search : ");
+		search = sc.nextLine();
+		int flag = 0;
+		for (Contacts con : contacts) {
+			if (con.getCity().equalsIgnoreCase(search)) {
+				System.out.println(con.getPhoneNumber());
+				flag = 1;
+				addressBook.add(con);
+			}
+		}
+		if (flag == 1) {
+			System.out.println("...Match Found...");
+			for (Contacts co : addressBook) {
+				System.out.println(co);
+			}
+		} else {
+			System.out.println("Match Not Found!!!");
+		}
+	}
+
+	public static void searchByState(List<Contacts> contacts) {
+		String search;
+		List<Contacts> addressBook = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter First Name to search : ");
 		search = sc.nextLine();
@@ -115,12 +148,12 @@ public class AddressBook  implements IAddressBook {
 		for (Contacts con : contacts) {
 			if (con.getCity().equalsIgnoreCase(search)) {
 				flag = 1;
-				equal.add(con);
+				addressBook.add(con);
 			}
 		}
 		if (flag == 1) {
 			System.out.println("...Match Found...");
-			for (Contacts co : equal) {
+			for (Contacts co : addressBook) {
 				System.out.println(co);
 			}
 		} else {
@@ -130,14 +163,16 @@ public class AddressBook  implements IAddressBook {
 
 	public void Search() {
 		int search;
-		System.out.println("Enter to search 1-> search by city ");
+		System.out.println("Enter to search  1-> search by city  2->Search by State ");
 		search = sc.nextInt();
 		switch (search) {
 		case 1:
 			searchByCity(addressBook);
 			break;
+		case 2:
+			searchByState(addressBook);
+			break;
 		default:
-			System.out.println("Enter proper value");
 			break;
 		}
 	}
@@ -166,3 +201,5 @@ public class AddressBook  implements IAddressBook {
 		return false;
 	}
 }
+
+	
