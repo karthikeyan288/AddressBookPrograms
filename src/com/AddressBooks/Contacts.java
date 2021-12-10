@@ -89,9 +89,9 @@ public class Contacts {
 
 	@Override
 	public String toString() {
-		return "Person{" + "fname='" + firstName + '\'' + ", lname='" + lastName + '\'' + ", address='" + address + '\''
+		return "Contact{" + "firstname= '" + firstName + '\'' + ", lastname='" + lastName + '\'' + ", address='" + address + '\''
 				+ ", city='" + cityName + '\'' + ", state='" + stateName + '\'' + ", phone='" + phoneNumber + '\''
-				+ ", zip='" + zipCode + '\'' + '}';
+				+ ", zip='" + zipCode + '\'' + '}' +'\n';
 
 	}
 }
