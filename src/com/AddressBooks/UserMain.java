@@ -7,12 +7,13 @@ public class UserMain {
 	public static void main(String[] args) {
 		
 		AddressBook ad = new AddressBook();
+		//Sorting so =new Sorting();
 		int i = 0;
 		while (i == 0) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("********WELCOME TO ADDRESS BOOK********");
 			System.out.print(
-					"Enter the choice 1-> addcontact  2-> showContact 3->editContact 4-> deletecontact 5-> Search 6-> Sorting 7-> exit");
+					"Enter the choice 1-> addcontact  2-> showContact 3->editContact 4-> deletecontact 5-> Search  6-> Sorting  7-> exit");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -30,10 +31,10 @@ public class UserMain {
 			case 5:
 				ad.Search();
 				break;
-			case 7:
+			case 6:
 				ad.Sorting();
 				break;
-			case 6:
+			case 7:
 				System.out.println("*****THANKYOU*****");
 				i = 1;
 				break;
