@@ -1,10 +1,13 @@
 package com.AddressBooks;
 
+import java.util.List;
 import java.util.Scanner;
-
+ 
 public class UserMain {
 	public static void main(String[] args) {
+		
 		AddressBook ad = new AddressBook();
+		//Sorting so =new Sorting();
 		int i = 0;
 		while (i == 0) {
 			Scanner sc = new Scanner(System.in);
@@ -26,6 +29,7 @@ public class UserMain {
 				break;
 			case 5:
 				ad.Search();
+				break;
 			case 6:
 				System.out.println("*****THANKYOU*****");
 				i = 1;
