@@ -147,6 +147,7 @@ public class AddressBook implements IAddressBook {
 		int flag = 0;
 		for (Contacts con : contacts) {
 			if (con.getCity().equalsIgnoreCase(search)) {
+        System.out.println(con.getPhoneNumber());
 				flag = 1;
 				addressBook.add(con);
 			}
@@ -223,3 +224,5 @@ public class AddressBook implements IAddressBook {
 		System.out.println(contacts);
 	}
 }
+
+

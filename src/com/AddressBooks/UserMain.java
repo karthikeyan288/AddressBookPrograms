@@ -13,7 +13,7 @@ public class UserMain {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("********WELCOME TO ADDRESS BOOK********");
 			System.out.print(
-					"Enter the choice 1-> addcontact  2-> showContact 3->editContact 4-> deletecontact 5-> Search 6-> exit");
+					"Enter the choice 1-> addcontact  2-> showContact 3->editContact 4-> deletecontact 5-> Search 6-> Sorting 7-> exit");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
