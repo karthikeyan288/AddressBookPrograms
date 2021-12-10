@@ -12,8 +12,7 @@ public class UserMain {
 		while (i == 0) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("********WELCOME TO ADDRESS BOOK********");
-			System.out.print(
-					"Enter the choice 1-> addcontact  2-> showContact 3->editContact 4-> deletecontact 5-> Search 6-> exit");
+			System.out.print(	"Enter the choice 1-> add contact  2-> show Contact 3->edit Contact 4-> delete contact 5->Search  6->exit");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:

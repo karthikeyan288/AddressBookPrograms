@@ -160,6 +160,29 @@ public class AddressBook implements IAddressBook {
 			System.out.println("Match Not Found!!!");
 		}
 	}
+	
+	public static void searchByState(List<Contacts> contacts) {
+		String search;
+		List<Contacts> equal = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First Name to search : ");
+		search = sc.nextLine();
+		int flag = 0;
+		for (Contacts con : contacts) {
+			if (con.getCity().equalsIgnoreCase(search)) {
+				flag = 1;
+				equal.add(con);
+			}
+		}
+		if (flag == 1) {
+			System.out.println("...Match Found...");
+			for (Contacts co : equal) {
+				System.out.println(co);
+			}
+		} else {
+			System.out.println("Match Not Found!!!");
+		}
+	}
 
 	public void Search() {
 		int search;
@@ -202,4 +225,4 @@ public class AddressBook implements IAddressBook {
 	}
 }
 
-	
+
