@@ -90,7 +90,7 @@ public class Contacts {
 	@Override
 	public String toString() {
 		return "Contact{" + "firstname= '" + firstName + '\'' + ", lastname='" + lastName + '\'' + ", address='" + address + '\''
-				+ ", city='" + cityName + '\'' + ", state='" + stateName + '\'' + ", phone='" + phoneNumber + '\''
+				+ ", city='" + cityName + '\'' + ", state='" + stateName + '\'' + ", phone='" + phoneNumber + '\''+'\n'
 	}
 }
 

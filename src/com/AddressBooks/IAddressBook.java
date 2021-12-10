@@ -9,3 +9,4 @@ public interface IAddressBook {
 	public void deleteRecord();
 
 }
+ 

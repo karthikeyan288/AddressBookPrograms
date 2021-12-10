@@ -70,7 +70,7 @@ public class AddressBook implements IAddressBook {
 		System.out.println(addressBook.get(id));
 		while (i == 0) {
 			System.out.println(
-					"Enter the feild you want to edit 1: FirstName 2:Addrress  3:City  4:State  5:Phone  6:Zip Code 7: Exit");
+					"Enter the feild you want to edit 1: FirstName 2:Addrress  3:City  4:State  5:Phone  6:ZipCode 7: Exit");
 			edit = sc.nextInt();
 			switch (edit) {
 			case 1:
@@ -108,7 +108,8 @@ public class AddressBook implements IAddressBook {
 				i = 1;
 				break;
 			default:
-				System.out.println("Please Enter Valid Option");
+				System.out.println("Back to Menu ");
+        break;
 			}
 			System.out.println(addressBook.get(id));
 		}
@@ -174,6 +175,7 @@ public class AddressBook implements IAddressBook {
 			searchByState(addressBook);
 			break;
 		default:
+        system.out.println("Back to Menu");
 			break;
 		}
 	}
@@ -183,7 +185,7 @@ public class AddressBook implements IAddressBook {
 		for (Contacts contacts : addressBook) {
 			System.out.println("Id: " + addressBook.indexOf(contacts) + " : " + contacts);
 		}
-		System.out.print("\nEnter #ID to delete Contact : ");
+		System.out.print(" Enter ID to delete Contact : ");
 		id = sc.nextInt();
 		addressBook.remove(id);
 	}
@@ -205,13 +207,21 @@ public class AddressBook implements IAddressBook {
 	public void Sorting() {
 		int value;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter the choice for sorting : 1.name ");
+		System.out.println("enter the choice for sorting : 1.Sortbyname 2.SortbyCity 3.SortbyState 4.SortbyZip ");
 		value = sc.nextInt();
 		switch (value) {
 		case 1:
 			sortByFirstNmae();
 			break;
-
+    case 2:
+			sortByCity();
+			break;
+		case 3:
+			sortByState();
+			break;
+		case 4:
+			sortByZip();
+			break;
 		default:
 			System.out.println("Back to Menu");
 			break;
@@ -219,7 +229,29 @@ public class AddressBook implements IAddressBook {
 	}
 
 	private void sortByFirstNmae() {
-		List<Contacts> contacts = addressBook.stream().sorted(Comparator.comparing(Contacts::getFirstName))
+		List<Contacts> contacts = addressBook.stream()
+				.sorted(Comparator.comparing(Contacts::getFirstName))
+				.collect(Collectors.toList());
+		System.out.println(contacts);
+	}
+
+	private void sortByCity() {
+		List<Contacts> contacts = addressBook.stream()
+				.sorted(Comparator.comparing(Contacts::getCity))
+				.collect(Collectors.toList());
+		System.out.println(contacts);
+	}
+
+	private void sortByState() {
+		List<Contacts> contacts = addressBook.stream()
+				.sorted(Comparator.comparing(Contacts::getState))
+				.collect(Collectors.toList());
+		System.out.println(contacts);
+	}
+
+	private void sortByZip() {
+		List<Contacts> contacts = addressBook.stream()
+				.sorted(Comparator.comparing(Contacts::getZip))
 				.collect(Collectors.toList());
 		System.out.println(contacts);
 	}
